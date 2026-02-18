@@ -42,15 +42,17 @@
             text-align: center;
         }
 
-        /* TITRE COPIÉ SUR LE STYLE DU MENU (NAV-ITEM) */
+        /* TITRE AVEC EFFET FLASH UNIQUEMENT ICI */
         .script-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.2rem; /* Taille identique au menu */
+            font-size: 3.2rem; 
             color: #3b1e2f; 
             margin-bottom: 20px;
             font-weight: 400;
-            text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9);
-            animation: none !important;
+            /* L'effet flash intense du menu */
+            text-shadow: 0px 0px 20px rgba(255, 255, 255, 1), 
+                         0px 0px 35px rgba(255, 255, 255, 0.8),
+                         0px 0px 10px rgba(255, 255, 255, 0.9);
             transform: translateZ(0);
         }
 
@@ -60,7 +62,6 @@
             color: #3b1e2f;
             margin-bottom: 30px;
             line-height: 1.2;
-            text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
         }
 
         .event-group {
