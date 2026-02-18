@@ -42,17 +42,20 @@
             text-align: center;
         }
 
-        /* TITRE AVEC FLASH INTENSE UNIQUEMENT */
+        /* TITRE AVEC FLASH MAXIMUM - EFFET NÉON BLANC PRONONCÉ */
         .script-title {
             font-family: 'Great Vibes', cursive;
             font-size: 3.8rem; 
             color: #3b1e2f; 
             margin-bottom: 15px;
             font-weight: 400;
-            /* Triple couche d'ombre blanche pour l'éclat maximum */
-            text-shadow: 0px 0px 20px rgba(255, 255, 255, 1), 
-                         0px 0px 30px rgba(255, 255, 255, 1), 
-                         0px 0px 45px rgba(255, 255, 255, 0.8);
+            /* 5 couches d'ombres pour une intensité maximale */
+            text-shadow: 
+                0px 0px 10px rgba(255, 255, 255, 1),
+                0px 0px 20px rgba(255, 255, 255, 1),
+                0px 0px 35px rgba(255, 255, 255, 1),
+                0px 0px 50px rgba(255, 255, 255, 0.9),
+                0px 0px 65px rgba(255, 255, 255, 0.8);
             transform: translateZ(0);
         }
 
@@ -62,7 +65,7 @@
             color: #3b1e2f;
             margin-bottom: 30px;
             line-height: 1.2;
-            /* Pas d'ombre ici */
+            /* Pas d'ombre flash ici */
         }
 
         .event-group {
@@ -76,7 +79,6 @@
             font-size: 0.9rem;
             color: #2a1522; 
             margin-bottom: 8px;
-            /* Pas d'ombre ici */
         }
 
         .location-name {
@@ -86,7 +88,6 @@
             font-weight: 900;
             color: #3b1e2f;
             margin-bottom: 6px;
-            /* Pas d'ombre ici */
         }
 
         .address-detail {
@@ -94,7 +95,6 @@
             color: #2a1522;
             font-weight: 700;
             line-height: 1.4;
-            /* Pas d'ombre ici */
         }
 
         .divider {
