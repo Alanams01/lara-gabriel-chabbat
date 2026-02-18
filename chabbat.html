@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Chabbat - Lara & Gabriel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500;700;800&family=Cinzel:wght@600;800;900&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body, html { 
+            height: 100dvh; width: 100%; 
+            background-color: #000; 
+            font-family: 'Montserrat', sans-serif; 
+            overflow: hidden; 
+        }
+
+        /* IMAGE PLEIN ÉCRAN */
+        .bg-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('page.png') no-repeat center center;
+            background-size: 100% 100%; 
+            z-index: 1;
+        }
+
+        /* VOILE LÉGER POUR UNIFIER LE FOND */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.18); 
+            z-index: 2;
+        }
+
+        .main-ui {
+            position: relative; 
+            z-index: 10; 
+            height: 100dvh; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .bsd {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-family: 'Assistant', sans-serif;
+            font-size: 11px;
+            color: #3b1e2f; /* Couleur Prune */
+            font-weight: 700;
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
+        }
+
+        /* TITRE SCRIPT PRUNE */
+        .script-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.2rem;
+            color: #3b1e2f; 
+            margin-bottom: 15px;
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 1), 0px 0px 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .hebrew-names {
+            font-family: 'Assistant', sans-serif;
+            font-size: 2.2rem;
+            color: #3b1e2f; 
+            margin-bottom: 30px;
+            direction: rtl;
+            font-weight: 400;
+            letter-spacing: 5px;
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+        }
+
+        .event-info {
+            margin-bottom: 25px;
+        }
+
+        .date-time {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+        }
+
+        .location {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 900;
+            color: #3b1e2f;
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+        }
+
+        .address {
+            font-size: 0.95rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            line-height: 1.5;
+            font-style: italic;
+            text-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
+        }
+
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: #3b1e2f; 
+            margin: 25px auto;
+            opacity: 0.8;
+        }
+
+        /* BOUTON PRUNE COORDONNÉ */
+        .back-btn {
+            display: inline-block;
+            background: #3b1e2f; 
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            transition: 0.3s ease;
+            font-weight: 800;
+            box-shadow: 0 4px 10px rgba(59, 30, 47, 0.3);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+<script src="audio.js"></script>
+    <div class="bg-container"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="main-ui">
+        <span class="bsd">בס"ד</span>
+        
+        <h1 class="script-title">Chabbat Hatan</h1>
+
+        <div class="hebrew-names">
+            לרה & גבריאל
+        </div>
+
+        <div class="event-info">
+            <span class="date-time">26 et 27 Juin 2026</span>
+            <span class="location">Centre Européen (CEJ)</span>
+            <p class="address">
+                Place de Jérusalem<br>
+                75017 Paris
+            </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <a href="premiere-page.html" class="back-btn">Retour</a>
+    </div>
+
+</body>
+</html>

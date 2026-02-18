@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mairie - Lara & Gabriel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;800&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body, html { 
+            height: 100dvh; width: 100%; 
+            background-color: #000; 
+            font-family: 'Montserrat', sans-serif; 
+            overflow: hidden; 
+        }
+
+        .bg-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('page.png') no-repeat center center;
+            background-size: 100% 100%; 
+            z-index: 1;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.15); 
+            z-index: 2;
+        }
+
+        .main-ui {
+            position: relative; 
+            z-index: 10; 
+            height: 100dvh; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* TITRE HARMONISÉ AVEC HOUPPA (3.8rem) */
+        .script-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            color: #3b1e2f; 
+            margin-bottom: 15px;
+            text-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
+        }
+
+        .names-intro {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #3b1e2f;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+        }
+
+        .event-group {
+            margin-bottom: 25px;
+        }
+
+        .date-time {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            color: #2a1522; 
+            margin-bottom: 8px;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+        }
+
+        .location-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            font-weight: 900;
+            color: #3b1e2f;
+            margin-bottom: 6px;
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+        }
+
+        .address-detail {
+            font-size: 0.9rem;
+            color: #2a1522;
+            font-weight: 700;
+            line-height: 1.4;
+            text-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #3b1e2f; 
+            margin: 25px auto;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .back-btn {
+            margin-top: 25px;
+            display: inline-block;
+            background: #3b1e2f; 
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 55px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 800;
+            box-shadow: 0 5px 15px rgba(59, 30, 47, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-container"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="main-ui">
+        <h1 class="script-title">Mairie</h1>
+
+        <div class="names-intro">
+            Lara et Gabriel se diront<br>« Oui »
+        </div>
+
+        <div class="event-group">
+            <p class="date-time">Le 16 Juin 2026 à 15h00</p>
+            <h2 class="location-name">À la Mairie de Levallois</h2>
+            <p class="address-detail">1 place de la République, 92300 Levallois</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="event-group">
+            <p class="date-time">After Mairie</p>
+            <h2 class="location-name">Au Salon Hoche</h2>
+            <p class="address-detail">9 avenue Hoche, 75008 Paris</p>
+        </div>
+
+        <a href="premiere-page.html" class="back-btn">Retour</a>
+    </div>
+
+</body>
+</html>

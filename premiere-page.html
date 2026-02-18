@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Programme - Lara & Gabriel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body, html { 
+            height: 100dvh; width: 100%; 
+            background-color: #000; 
+            font-family: 'Montserrat', sans-serif; 
+            overflow: hidden; 
+        }
+
+        /* IMAGE PLEIN ÉCRAN */
+        .bg-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('page.png') no-repeat center center;
+            background-size: 100% 100%; 
+            z-index: 1;
+        }
+
+        /* EFFET FONDU UNIFICATEUR SUR L'IMAGE */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.18); 
+            z-index: 2;
+        }
+
+        .main-ui {
+            position: relative; 
+            z-index: 10; 
+            height: 100dvh; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* TITRE PROGRAMME - COULEUR PRUNE */
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem; 
+            letter-spacing: 10px;
+            color: #3b1e2f;
+            text-transform: uppercase;
+            margin-bottom: 40px; 
+            font-weight: 400;
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+        }
+
+        .nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; 
+            width: 100%;
+            margin-bottom: 50px; 
+        }
+
+        .nav-link {
+            text-decoration: none;
+            display: block;
+            transition: 0.4s ease;
+        }
+
+        /* RUBRIQUES PRUNE */
+        .nav-item {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem; 
+            color: #3b1e2f; 
+            font-weight: 400;
+            text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9);
+            transition: 0.3s;
+        }
+
+        .nav-link:hover .nav-item {
+            transform: scale(1.03);
+            opacity: 0.8;
+        }
+
+        .divider {
+            width: 35px;
+            height: 2px;
+            background: #3b1e2f;
+            margin: 0 auto;
+            opacity: 0.4;
+        }
+
+        /* BOUTON RETOUR PRUNE COORDONNÉ */
+        .back-home {
+            position: absolute;
+            bottom: 35px; 
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            padding: 14px 45px; 
+            background: #3b1e2f;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(59, 30, 47, 0.3);
+        }
+
+        .back-home:hover { 
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+<script src="audio.js"></script>
+    <div class="bg-container"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="main-ui">
+        <h1 class="main-title">Programme</h1>
+
+        <div class="nav-list">
+            <a href="mairie.html" class="nav-link">
+                <span class="nav-item">Mairie</span>
+            </a>
+            <div class="divider"></div>
+
+            <a href="houppa.html" class="nav-link">
+                <span class="nav-item">Houppa & Soirée</span>
+            </a>
+            <div class="divider"></div>
+
+            <a href="chabbat.html" class="nav-link">
+                <span class="nav-item">Chabbat</span>
+            </a>
+            <div class="divider"></div>
+
+            <a href="reponse.html" class="nav-link">
+                <span class="nav-item">Réponse</span>
+            </a>
+        </div>
+
+        <a href="index.html" class="back-home">Retour</a>
+    </div>
+</body>
+</html>

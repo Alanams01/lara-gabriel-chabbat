@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lara & Gabriel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        html, body { 
+            height: 100dvh; 
+            width: 100%; 
+            background-color: #000; 
+            font-family: 'Montserrat', sans-serif; 
+            overflow: hidden; 
+        }
+
+        .bg-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('page.png') no-repeat center center;
+            background-size: 100% 100%; 
+            z-index: 1;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            z-index: 2;
+        }
+
+        .main-ui {
+            position: relative; 
+            z-index: 10; 
+            height: 100dvh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+        }
+
+        .names-container {
+            margin-top: -12dvh; 
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        .names {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 11vw, 3.8rem);
+            color: #3b1e2f; 
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 14px;
+            line-height: 1.4;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8), 0px 0px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .ampersand {
+            display: block;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.2rem;
+            color: #3b1e2f;
+            text-transform: none;
+            letter-spacing: 0;
+            margin: -5px 0;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            color: #3b1e2f;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 8px; 
+            margin-top: 25px;
+            font-weight: 700;
+        }
+
+        .cta-container {
+            position: absolute;
+            bottom: 12dvh;
+        }
+
+        .cta-center {
+            text-decoration: none; 
+            color: #fff; 
+            padding: 15px 50px; 
+            font-size: 11px; 
+            text-transform: uppercase;
+            letter-spacing: 5px; 
+            background: #3b1e2f; 
+            transition: 0.4s;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(59, 30, 47, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* BOUTON VOLUME DISCRET */
+        #mute-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            color: #3b1e2f;
+            font-size: 9px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            display: none;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-container"></div>
+    <div class="bg-overlay"></div>
+
+    <audio id="bg-music" loop>
+        <source src="musique4.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="mute-btn" onclick="toggleMute()">SOUND ON</div>
+
+    <div class="main-ui">
+        <div class="names-container">
+            <h1 class="names">
+                LARA
+                <span class="ampersand">&</span>
+                GABRIEL
+            </h1>
+            <p class="subtitle">La suite commence</p>
+        </div>
+
+        <div class="cta-container">
+            <a href="premiere-page.html" target="_blank" class="cta-center" onclick="playMusic()">Découvrir</a>
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('bg-music');
+        const muteBtn = document.getElementById('mute-btn');
+
+        function playMusic() {
+            audio.play();
+            muteBtn.style.display = 'block';
+            // On laisse le lien ouvrir premiere-page.html dans un nouvel onglet
+        }
+
+        function toggleMute() {
+            if (audio.paused) {
+                audio.play();
+                muteBtn.innerText = "SOUND ON";
+            } else {
+                audio.pause();
+                muteBtn.innerText = "SOUND OFF";
+            }
+        }
+    </script>
+
+</body>
+</html>

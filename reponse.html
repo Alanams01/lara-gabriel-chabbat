@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RSVP - Lara & Gabriel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body, html { 
+            height: 100dvh; width: 100%; 
+            background-color: #000; 
+            font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden; 
+        }
+
+        /* ARRIÈRE-PLAN PLEIN ÉCRAN */
+        .bg-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('page.png') no-repeat center center;
+            /* Force l'image à prendre tout l'écran sans bandes noires */
+            background-size: 100% 100%; 
+            z-index: 1;
+        }
+
+        .main-ui {
+            position: relative; 
+            z-index: 10; 
+            min-height: 100dvh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* VOILE BLANC TRANSLUCIDE */
+        .overlay-card {
+            background: rgba(255, 255, 255, 0.45); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            width: 95%;
+            max-width: 450px;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: #c39d7b; /* Couleur sable */
+            font-size: 1.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .instruction {
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .rsvp-form { text-align: left; }
+
+        label { 
+            font-family: 'Cinzel', serif; 
+            font-size: 0.75rem; 
+            color: #1a1a1a; 
+            display: block; 
+            margin-bottom: 8px;
+            margin-top: 15px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%; padding: 10px;
+            border: none; 
+            border-bottom: 1px solid #c39d7b;
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 1rem;
+            outline: none; 
+            background: rgba(255,255,255,0.2);
+            color: #1a1a1a;
+        }
+
+        .presence-options {
+            display: flex; gap: 20px; margin-top: 5px;
+        }
+
+        .option-item {
+            display: flex; align-items: center; gap: 6px;
+            cursor: pointer; font-size: 0.8rem; text-transform: uppercase; 
+            font-weight: 600;
+        }
+
+        input[type="radio"] { accent-color: #c39d7b; transform: scale(1.1); }
+
+        .guest-count-box {
+            display: none;
+            margin-top: 10px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* BOUTON SABLE */
+        .btn-submit {
+            width: 100%; margin-top: 30px;
+            background: #c39d7b; 
+            color: #fff;
+            border: none; 
+            padding: 14px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase; 
+            letter-spacing: 3px;
+            font-size: 0.8rem; 
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-btn {
+            margin-top: 20px; display: inline-block;
+            text-decoration: none; color: #1a1a1a;
+            font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 3px; opacity: 0.6;
+            border-bottom: 1px solid #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-container"></div>
+
+    <div class="main-ui">
+        <div class="overlay-card">
+            <h1>R.S.V.P.</h1>
+            <p class="instruction">Votre réponse est attendue avant le 21 Mai 2026</p>
+
+            <form id="rsvpForm" class="rsvp-form">
+                <label>Nom & Prénom</label>
+                <input type="text" name="nom" required placeholder="Ex: Famille Cohen">
+
+                <label>Mairie (16 Juin)</label>
+                <div class="presence-options">
+                    <label class="option-item"><input type="radio" name="mairie_pres" value="Present" onclick="showCount('mairie', true)" required> Présent</label>
+                    <label class="option-item"><input type="radio" name="mairie_pres" value="Non" onclick="showCount('mairie', false)"> Non</label>
+                </div>
+                <div id="count_mairie" class="guest-count-box">
+                    <input type="number" name="mairie_nb" placeholder="Nombre de personnes" min="1">
+                </div>
+
+                <label>Houppa & Soirée (21 Juin)</label>
+                <div class="presence-options">
+                    <label class="option-item"><input type="radio" name="houppa_pres" value="Present" onclick="showCount('houppa', true)" required> Présent</label>
+                    <label class="option-item"><input type="radio" name="houppa_pres" value="Non" onclick="showCount('houppa', false)"> Non</label>
+                </div>
+                <div id="count_houppa" class="guest-count-box">
+                    <input type="number" name="houppa_nb" placeholder="Nombre de personnes" min="1">
+                </div>
+
+                <label>Chabbat (26-27 Juin)</label>
+                <div class="presence-options">
+                    <label class="option-item"><input type="radio" name="chabbat_pres" value="Present" onclick="showCount('chabbat', true)" required> Présent</label>
+                    <label class="option-item"><input type="radio" name="chabbat_pres" value="Non" onclick="showCount('chabbat', false)"> Non</label>
+                </div>
+                <div id="count_chabbat" class="guest-count-box">
+                    <input type="number" name="chabbat_nb" placeholder="Nombre de personnes" min="1">
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">Confirmer ma venue</button>
+            </form>
+
+            <a href="premiere-page.html" class="back-btn">Retour</a>
+        </div>
+    </div>
+
+    <script>
+        function showCount(event, isPresent) {
+            const box = document.getElementById('count_' + event);
+            box.style.display = isPresent ? 'block' : 'none';
+            if(!isPresent) box.querySelector('input').value = "";
+        }
+
+        const scriptURL = 'VOTRE_URL_SCRIPT';
+        const form = document.getElementById('rsvpForm');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = "Envoi...";
+            btn.disabled = true;
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(() => {
+                    btn.innerHTML = "Merci !";
+                    form.reset();
+                    setTimeout(() => { window.location.href = "premiere-page.html"; }, 2000);
+                })
+                .catch(() => {
+                    alert("Erreur");
+                    btn.disabled = false;
+                    btn.innerHTML = "Confirmer";
+                });
+        });
+    </script>
+</body>
+</html>
