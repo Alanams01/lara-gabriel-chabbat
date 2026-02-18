@@ -54,8 +54,14 @@
                     <input type="number" name="Houppa_nombre" placeholder="Nombre de personnes" min="1">
                 </div>
 
-                <input type="hidden" name="Chabbat_present" value="Non">
-                <input type="hidden" name="Chabbat_nombre" value="0">
+                <label>Chabbat (26-27 Juin)</label>
+                <div class="presence-options">
+                    <label class="option-item"><input type="radio" name="Chabbat_present" value="Present" onclick="showCount('chabbat', true)" required> Présent</label>
+                    <label class="option-item"><input type="radio" name="Chabbat_present" value="Non" onclick="showCount('chabbat', false)"> Non</label>
+                </div>
+                <div id="count_chabbat" class="guest-count-box">
+                    <input type="number" name="Chabbat_nombre" placeholder="Nombre de personnes" min="1">
+                </div>
 
                 <button type="submit" class="btn-submit" id="submitBtn">Confirmer ma venue</button>
             </form>
