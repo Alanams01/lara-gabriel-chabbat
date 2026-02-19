@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Chabbat - Lara & Gabriel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500;700;800&family=Cinzel:wght@600;800;900&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500;700;800&family=Cinzel:wght@600;800;900&family=Assistant:wght@400;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
@@ -15,7 +15,6 @@
             overflow: hidden; 
         }
 
-        /* IMAGE PLEIN ÉCRAN */
         .bg-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -24,7 +23,6 @@
             z-index: 1;
         }
 
-        /* VOILE LÉGER POUR UNIFIER LE FOND */
         .bg-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -50,92 +48,107 @@
             right: 25px;
             font-family: 'Assistant', sans-serif;
             font-size: 11px;
-            color: #3b1e2f; /* Couleur Prune */
+            color: #3b1e2f; 
             font-weight: 700;
-            text-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
         }
 
-        /* TITRE SCRIPT PRUNE */
+        /* TITRE AVEC SON ÉCLAT SIGNATURE */
         .script-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 4.2rem;
+            font-size: 3.8rem;
             color: #3b1e2f; 
-            margin-bottom: 15px;
-            text-shadow: 0px 0px 15px rgba(255, 255, 255, 1), 0px 0px 10px rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            text-shadow: 
+                0px 0px 20px rgba(255, 255, 255, 1), 
+                0px 0px 35px rgba(255, 255, 255, 0.8),
+                0px 0px 50px rgba(255, 255, 255, 0.6);
+            transform: translateZ(0);
+        }
+
+        /* VERSET STYLISÉ EN BLOC ÉPURÉ */
+        .verse-box {
+            max-width: 90%;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        .verse-text {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 0.85rem;
+            color: #3b1e2f;
+            line-height: 1.6;
+            direction: rtl;
+            font-weight: 400;
+            font-style: normal;
         }
 
         .hebrew-names {
-            font-family: 'Assistant', sans-serif;
-            font-size: 2.2rem;
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 2rem;
             color: #3b1e2f; 
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             direction: rtl;
-            font-weight: 400;
-            letter-spacing: 5px;
-            text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+            font-weight: 700;
         }
 
         .event-info {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
-        .date-time {
+        .invitation-text {
+            font-size: 0.85rem;
+            color: #2a1522; 
+            margin-bottom: 12px;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        .date-format {
             font-weight: 800;
-            text-transform: uppercase;
             letter-spacing: 3px;
-            font-size: 0.95rem;
+            font-size: 1.4rem;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: #1a1a1a;
-            text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
         }
 
         .location {
             font-family: 'Cinzel', serif;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             letter-spacing: 2px;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: 900;
             color: #3b1e2f;
-            text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
         }
 
         .address {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #1a1a1a;
             font-weight: 700;
-            line-height: 1.5;
-            font-style: italic;
-            text-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
+            line-height: 1.4;
         }
 
         .divider {
-            width: 50px;
-            height: 2px;
+            width: 40px;
+            height: 1px;
             background: #3b1e2f; 
-            margin: 25px auto;
-            opacity: 0.8;
+            margin: 20px auto;
+            opacity: 0.6;
         }
 
-        /* BOUTON PRUNE COORDONNÉ */
         .back-btn {
             display: inline-block;
             background: #3b1e2f; 
             color: #fff;
             text-decoration: none;
-            padding: 14px 50px;
+            padding: 14px 55px;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 4px;
-            transition: 0.3s ease;
             font-weight: 800;
             box-shadow: 0 4px 10px rgba(59, 30, 47, 0.3);
-        }
-
-        .back-btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -149,12 +162,20 @@
         
         <h1 class="script-title">Chabbat Hatan</h1>
 
-        <div class="hebrew-names">
-            לארה & גבריאל
+        <div class="verse-box">
+            <p class="verse-text">
+                וַיִּשְׁלַח מַלְאָכִים אֶל בִּלְעָם בֶּן בְּעֹר פְּתוֹרָה אֲשֶׁר עַל הַנָּהָר אֶרֶץ בְּנֵי עַמּוֹ לִקְרֹא לוֹ: לֵאמֹר הִנֵּה עַם יָצָא מִמִּצְרַיִם הִנֵּה כִסָּה אֶת עֵין הָאָרֶץ וְהוּא יֹשֵׁב מִמֻּלִי
+            </p>
         </div>
 
+        <div class="hebrew-names">לארה וגבריאל</div>
+
         <div class="event-info">
-            <span class="date-time">26 et 27 Juin 2026</span>
+            <p class="invitation-text">Ont la joie de vous faire part du Shabbat Hatan qui aura lieu le :</p>
+            <span class="date-format">26/06/2026</span>
+            
+            <div class="divider"></div>
+            
             <span class="location">CEJ</span>
             <p class="address">
                 Place de Jérusalem<br>
@@ -162,13 +183,8 @@
             </p>
         </div>
 
-        <div class="divider"></div>
-
         <a href="premiere-page.html" class="back-btn">Retour</a>
     </div>
 
 </body>
-
 </html>
-
-
