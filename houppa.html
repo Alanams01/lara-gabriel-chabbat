@@ -52,6 +52,13 @@
             font-weight: 700;
         }
 
+        .neon-effect {
+            text-shadow: 
+                0px 0px 10px rgba(255, 255, 255, 1),
+                0px 0px 20px rgba(255, 255, 255, 0.8),
+                0px 0px 30px rgba(255, 255, 255, 0.6);
+        }
+
         .script-title {
             font-family: 'Great Vibes', cursive;
             font-size: 3.8rem; 
@@ -60,9 +67,9 @@
             font-weight: 400;
             text-shadow: 
                 0px 0px 20px rgba(255, 255, 255, 1), 
-                0px 0px 30px rgba(255, 255, 255, 1), 
-                0px 0px 45px rgba(255, 255, 255, 0.8),
-                0px 0px 60px rgba(255, 255, 255, 0.6);
+                0px 0px 35px rgba(255, 255, 255, 0.9), 
+                0px 0px 50px rgba(255, 255, 255, 0.7),
+                0px 0px 65px rgba(255, 255, 255, 0.5);
             transform: translateZ(0);
         }
 
@@ -133,17 +140,16 @@
 
         .event-details { margin-bottom: 10px; }
 
-        /* DATE HÉBREU SANS EFFET NÉON */
+        /* AUCUN EFFET FLASH POUR CES ÉLÉMENTS */
         .date-text-hebrew {
             font-family: 'Assistant', sans-serif;
             font-size: 0.95rem;
             font-weight: 800;
-            color: #3b1e2f; /* Couleur Prune sans flash */
+            color: #3b1e2f;
             margin-bottom: 4px;
-            text-shadow: none; /* On enlève le flash */
+            text-shadow: none;
         }
 
-        /* DATE FRANÇAISE AVEC EFFET FLASH */
         .date-text {
             font-weight: 800;
             text-transform: uppercase;
@@ -151,10 +157,8 @@
             margin-bottom: 2px;
             color: #3b1e2f; 
             letter-spacing: 1px;
-            text-shadow: 
-                0px 0px 10px rgba(255, 255, 255, 1),
-                0px 0px 20px rgba(255, 255, 255, 0.9),
-                0px 0px 30px rgba(255, 255, 255, 0.7);
+            /* On garde le flash sur la date française comme dans ton code précédent, 
+               si tu ne le veux pas non plus, tu peux mettre text-shadow: none; */
         }
 
         .time-text {
@@ -164,6 +168,7 @@
             margin-bottom: 2px;
             color: #1a1a1a;
             letter-spacing: 1px;
+            text-shadow: none;
         }
 
         .location-name {
@@ -173,6 +178,7 @@
             font-weight: 900;
             color: #3b1e2f;
             margin-bottom: 4px;
+            text-shadow: none;
         }
 
         .address-detail {
@@ -180,6 +186,7 @@
             color: #1a1a1a;
             font-weight: 700;
             line-height: 1.3;
+            text-shadow: none;
         }
 
         .divider {
@@ -224,7 +231,7 @@
         
         <h1 class="script-title">Houppa</h1>
 
-        <div class="family-grid">
+        <div class="family-grid neon-effect">
             <div class="family-column family-left">
                 ILDA ET ERIC GARBAY<br>
                 LOUISE HAZAN<br>
@@ -241,7 +248,7 @@
 
         <p class="invitation-text">Ont l'honneur de vous convier au mariage de leurs enfants et petits enfants :</p>
 
-        <div class="couple-names-container">
+        <div class="couple-names-container neon-effect">
             <div class="name-block">
                 <span class="name-fr">Lara</span>
                 <span class="name-he">לארה</span>
@@ -257,7 +264,7 @@
 
         <div class="event-details">
             <p class="date-text-hebrew">ו' בתמוז ה'תשפ"ו</p>
-            <p class="date-text">Dimanche 21 juin 2026</p>
+            <p class="date-text neon-effect">Dimanche 21 juin 2026</p>
             <p class="time-text">à 17H00 Précises</p>
             <h2 class="location-name">Pavillon Dauphine</h2>
             <p class="address-detail">Place du Maréchal de Lattre de Tassigny Paris 16e</p>
@@ -265,7 +272,7 @@
 
         <div class="divider"></div>
 
-        <p class="memory-text">
+        <p class="memory-text neon-effect">
             Nous portons dans nos cœurs le souvenir béni de nos chers parents et grands-parents Armand Hazan za'l et Georgette Abitbol za'l
         </p>
 
