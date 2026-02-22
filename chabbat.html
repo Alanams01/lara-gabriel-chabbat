@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Chabbat - Lara & Gabriel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500;700;800&family=Cinzel:wght@600;800;900&family=Assistant:wght@400;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500;700;800&family=Cinzel:wght@400;700;900&family=Assistant:wght@400;700&family=Frank+Ruhl+Libre:wght@700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
@@ -52,7 +52,6 @@
             font-weight: 700;
         }
 
-        /* TITRE AVEC SON ÉCLAT SIGNATURE */
         .script-title {
             font-family: 'Great Vibes', cursive;
             font-size: 3.8rem;
@@ -65,7 +64,6 @@
             transform: translateZ(0);
         }
 
-        /* VERSET STYLISÉ EN BLOC ÉPURÉ */
         .verse-box {
             max-width: 90%;
             margin-bottom: 25px;
@@ -79,16 +77,16 @@
             line-height: 1.6;
             direction: rtl;
             font-weight: 400;
-            font-style: normal;
         }
 
         .hebrew-names {
             font-family: 'Frank Ruhl Libre', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #3b1e2f; 
             margin-bottom: 15px;
             direction: rtl;
             font-weight: 700;
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
         }
 
         .event-info {
@@ -98,18 +96,21 @@
         .invitation-text {
             font-size: 0.85rem;
             color: #2a1522; 
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-style: italic;
             font-weight: 700;
         }
 
+        /* DATE HARMONISÉE EN PRUNE AVEC BELLE POLICE CINZEL */
         .date-format {
-            font-weight: 800;
-            letter-spacing: 3px;
-            font-size: 1.4rem;
+            font-family: 'Cinzel', serif;
+            font-weight: 400; /* Plus fin pour plus d'élégance */
+            letter-spacing: 6px;
+            font-size: 1.5rem;
             display: block;
             margin-bottom: 15px;
-            color: #1a1a1a;
+            color: #3b1e2f; /* Même couleur que le titre */
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
         }
 
         .location {
@@ -168,10 +169,11 @@
             </p>
         </div>
 
-        <div class="hebrew-names">לארה וגבריאל</div>
+        <div class="hebrew-names">לארה & גבריאל</div>
 
         <div class="event-info">
             <p class="invitation-text">Ont la joie de vous faire part du Shabbat Hatan qui aura lieu le :</p>
+            
             <span class="date-format">26/06/2026</span>
             
             <div class="divider"></div>
