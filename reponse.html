@@ -43,7 +43,7 @@
                     <label class="option-item"><input type="radio" name="Mairie_present" value="Non" onclick="showCount('mairie', false)"> Non</label>
                 </div>
                 <div id="count_mairie" class="guest-count-box">
-                    <input type="number" name="Mairie_nombre" id="input_mairie" placeholder="Nombre de personnes" min="1">
+                    <input type="number" name="Mairie_nombre" id="input_mairie" placeholder="Nombre de personnes">
                 </div>
 
                 <label>Houppa & Soirée (21 Juin)</label>
@@ -52,7 +52,7 @@
                     <label class="option-item"><input type="radio" name="Houppa_present" value="Non" onclick="showCount('houppa', false)"> Non</label>
                 </div>
                 <div id="count_houppa" class="guest-count-box">
-                    <input type="number" name="Houppa_nombre" id="input_houppa" placeholder="Nombre de personnes" min="1">
+                    <input type="number" name="Houppa_nombre" id="input_houppa" placeholder="Nombre de personnes">
                 </div>
 
                 <label>Chabbat (26-27 Juin)</label>
@@ -61,7 +61,7 @@
                     <label class="option-item"><input type="radio" name="Chabbat_present" value="Non" onclick="showCount('chabbat', false)"> Non</label>
                 </div>
                 <div id="count_chabbat" class="guest-count-box">
-                    <input type="number" name="Chabbat_nombre" id="input_chabbat" placeholder="Nombre de personnes" min="1">
+                    <input type="number" name="Chabbat_nombre" id="input_chabbat" placeholder="Nombre de personnes">
                 </div>
 
                 <button type="submit" class="btn-submit" id="submitBtn">Confirmer</button>
@@ -77,7 +77,6 @@
             if(isPresent) {
                 box.style.display = 'block';
                 input.required = true;
-                if(input.value === "0" || input.value === "") input.value = "";
             } else {
                 box.style.display = 'none';
                 input.required = false;
@@ -91,19 +90,20 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
-            btn.innerHTML = "Envoi...";
-            btn.disabled = true;
-
-            // Sécurité : on s'assure que les champs cachés ne sont pas 'required' avant l'envoi
+            
+            // On désactive tout blocage avant l'envoi
             const events = ['mairie', 'houppa', 'chabbat'];
             events.forEach(id => {
                 const box = document.getElementById('count_' + id);
                 const input = document.getElementById('input_' + id);
                 if (box.style.display === 'none' || box.style.display === '') {
                     input.required = false;
-                    if(input.value === "") input.value = "0";
+                    input.value = "0";
                 }
             });
+
+            btn.innerHTML = "Envoi...";
+            btn.disabled = true;
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
