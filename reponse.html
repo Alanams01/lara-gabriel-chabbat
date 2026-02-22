@@ -42,7 +42,7 @@
                     <label class="option-item"><input type="radio" name="Mairie_present" value="Non" onclick="showCount('mairie', false)"> Non</label>
                 </div>
                 <div id="count_mairie" class="guest-count-box">
-                    <input type="number" name="Mairie_nombre" placeholder="Nombre de personnes" min="1">
+                    <input type="number" name="Mairie_nombre" id="input_mairie" placeholder="Nombre de personnes" min="1" value="0">
                 </div>
 
                 <label>Houppa & Soirée (21 Juin)</label>
@@ -51,7 +51,7 @@
                     <label class="option-item"><input type="radio" name="Houppa_present" value="Non" onclick="showCount('houppa', false)"> Non</label>
                 </div>
                 <div id="count_houppa" class="guest-count-box">
-                    <input type="number" name="Houppa_nombre" placeholder="Nombre de personnes" min="1">
+                    <input type="number" name="Houppa_nombre" id="input_houppa" placeholder="Nombre de personnes" min="1" value="0">
                 </div>
 
                 <label>Chabbat (26-27 Juin)</label>
@@ -60,10 +60,10 @@
                     <label class="option-item"><input type="radio" name="Chabbat_present" value="Non" onclick="showCount('chabbat', false)"> Non</label>
                 </div>
                 <div id="count_chabbat" class="guest-count-box">
-                    <input type="number" name="Chabbat_nombre" placeholder="Nombre de personnes" min="1">
+                    <input type="number" name="Chabbat_nombre" id="input_chabbat" placeholder="Nombre de personnes" min="1" value="0">
                 </div>
 
-                <button type="submit" class="btn-submit" id="submitBtn">Confirmer ma venue</button>
+                <button type="submit" class="btn-submit" id="submitBtn">Envoyer ma réponse</button>
             </form>
             <a href="premiere-page.html" class="back-btn">Retour</a>
         </div>
@@ -72,7 +72,7 @@
     <script>
         function showCount(event, isPresent) {
             const box = document.getElementById('count_' + event);
-            const input = box.querySelector('input');
+            const input = document.getElementById('input_' + event);
             if(isPresent) {
                 box.style.display = 'block';
                 input.required = true;
@@ -90,22 +90,25 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
-            btn.innerHTML = "Envoi...";
+            btn.innerHTML = "Envoi en cours...";
             btn.disabled = true;
 
+            // On s'assure que même cachés, les champs nombres valent 0
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
-                    btn.innerHTML = "Merci !";
+                    btn.innerHTML = "Réponse envoyée !";
                     form.reset();
+                    // On recache les boites après le reset
+                    document.querySelectorAll('.guest-count-box').forEach(el => el.style.display = 'none');
                     setTimeout(() => { window.location.href = "premiere-page.html"; }, 2000);
                 })
                 .catch(error => {
-                    alert("Erreur lors de l'envoi.");
+                    console.error('Error!', error.message);
+                    alert("Une erreur est survenue lors de l'envoi.");
                     btn.disabled = false;
-                    btn.innerHTML = "Confirmer";
+                    btn.innerHTML = "Envoyer ma réponse";
                 });
         });
     </script>
 </body>
 </html>
-
