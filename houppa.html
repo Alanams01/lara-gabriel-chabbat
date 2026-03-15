@@ -76,8 +76,7 @@
 
         .family-grid {
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            justify-content: space-between;
             width: 100%;
             max-width: 480px;
             margin-bottom: 10px;
@@ -89,12 +88,12 @@
         }
 
         .family-column { flex: 1; }
-        .family-left { text-align: left; }
-        .family-right { text-align: right; }
+        .family-left { text-align: left; padding-right: 5px; }
+        .family-right { text-align: right; padding-left: 5px; }
 
         .invitation-text {
             font-size: 0.70rem;
-            color: #2a1522;
+            color: #2a1522; /* COULEUR DE RÉFÉRENCE */
             margin-bottom: 10px;
             font-style: italic;
             font-weight: 700;
@@ -196,15 +195,16 @@
             opacity: 0.6;
         }
 
+        /* PHRASE DE PENSÉE HARMONISÉE */
         .memory-text {
             font-size: 0.58rem;
-            color: #2a1522;
+            color: #2a1522; /* Même couleur que "Ont l'honneur..." */
             max-width: 90%;
             margin-top: 5px;
             font-style: italic;
             font-weight: 800; 
             line-height: 1.3;
-            text-shadow: none;
+            text-shadow: none; /* Pas d'effet néon */
         }
 
         .back-btn {
